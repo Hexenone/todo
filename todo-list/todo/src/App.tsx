@@ -1,17 +1,10 @@
 import Main from "./lib/pages/main/ui";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import './App.css'
-
-const router = createBrowserRouter([
-  {
-    path: "/main",
-    element: <Main />,
-  },
-]);
+//import './App.css'
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <Main />;
 }
+
 
 export default App;

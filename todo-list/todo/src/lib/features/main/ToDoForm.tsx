@@ -1,22 +1,40 @@
-import { FormEvent } from "react";
-import Button from "$lib/shared/ui/button/Button";
-import Input from "$lib/shared/ui/input/Input";
+import { useState } from 'react'
+import { Obj, Button, Input } from "./styles";
 
-export default function MainForm({
-  onSubmit,
-}: {
-  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
-}) {
+function TodoList () {
+  const [todos, setTodos] = useState([] as string[])
+  const [inputValue, setInputValue] = useState('')
 
-  function submitHandler(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    onSubmit(event);
-  }
-
-  return (
-    <form onSubmit={submitHandler}>
-      <Input />
-      <Button>Add</Button>
-    </form>
-  );
+function handleChange(e){
+  setInputValue(e.target.value)
 }
+
+function handleSubmit(e){
+  e.preventDefault()
+  setTodos([...todos, inputValue])
+  setInputValue('')
+}
+
+function handleDelete(index){
+  const newTodos = [...todos]
+  newTodos.splice(index, 1)
+  setTodos(newTodos)
+}
+  return (
+    <div>
+      <form>
+        <Input type='text' value={inputValue} onChange={handleChange}/>
+        <Button onClick={handleSubmit}>Add</Button>
+      </form>
+      <ul>
+        {todos.map((todo, index) => (
+          <Obj key={index}>{todo}
+          <Button onClick={() =>handleDelete(index)}>Delete</Button>
+          </Obj>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default TodoList;
