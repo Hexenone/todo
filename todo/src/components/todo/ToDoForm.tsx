@@ -1,13 +1,25 @@
 import { useState } from 'react'
-import { Obj, Button, Input } from "./styles";
-import ToDoList from "./ToDoList";
+import { Obj, Button, Input } from "./styles/stylesForm";
 
-function TodoForm () {
+function TodoForm() {
+  const [todos, setTodos] = useState([] as string[])
     const [inputValue, setInputValue] = useState('')
 
     function handleChange(e){
         setInputValue(e.target.value)
       }
+
+    function handleSubmit(e){
+      e.preventDefault()
+      setTodos([...todos, inputValue])
+      setInputValue('')
+    }
+
+    function handleDelete(index){
+      const newTodos = [...todos]
+      newTodos.splice(index, 1)
+      setTodos(newTodos)
+    }
 
     return (
       <div>
