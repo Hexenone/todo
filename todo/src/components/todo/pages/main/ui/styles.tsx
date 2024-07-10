@@ -9,6 +9,7 @@ export const Background = styled.div`
 `;
 
 export const Title = styled.div`
+  color: #000000;
   width: 167px;
   height: 39px;
   top: 194px;
@@ -16,7 +17,6 @@ export const Title = styled.div`
   gap: 0px;
   margin-bottom: 49px;
   opacity: 0px;
-  font-family: Inter;
   font-size: 32px;
   font-weight: 400;
   line-height: 38.73px;
