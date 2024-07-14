@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Obj, Button, Input } from "./styles/stylesForm";
+import { Obj, Button, Input } from "./stylesForm";
 
 function TodoForm() {
   const [todos, setTodos] = useState([] as string[])

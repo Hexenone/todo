@@ -1,5 +1,5 @@
-import TodoForm from "../../../ToDoForm";
-import { Title, Background } from "../../../styles/stylesPage";
+import TodoForm from "../TodoForm/ToDoForm";
+import { Title, Background } from "./styles";
 
 export default function Main() {
   return (
